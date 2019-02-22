@@ -2,9 +2,12 @@
   (if(> x y) x y)
 )
 
+(define (square x)
+  (* x x)
+)
 
 (define (sumOfMax x y z)
-  (cond ((and (> x y) (> x z)) (+ (big y z) x))
-    ((and (> y x) (> y z)) (+ (big z x) y))
-    (else (+ (big x y) z)))
+  (cond ((and (> x y) (> x z)) (+ (square (big y z)) (square x)))
+    ((and (> y x) (> y z)) (+ (square (big z x)) (square y)))
+    (else (+ (square (big x y)) (square z))))
 )
